@@ -2,19 +2,19 @@
 #include <stdlib.h>
 #include <time.h>
 /**
- * main - Entry
+ * main - Entry point
  *
  * Description: function prints \"Programming is positive, zero, or negative
  * returns zero otherwise
  * Return: 0
  */
+
 int main(void)
 {
-	int n; 
+	int n;
 
 	srand(time(0));
 	n = rand() - RAND_MAX / 2;
-
 	if (n > 0)
 	{
 		printf("%d is positive\n", n);
