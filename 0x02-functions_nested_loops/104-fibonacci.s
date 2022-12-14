@@ -64,6 +64,16 @@ main:
 	subq	%rax, %rcx
 	movq	%rcx, %rax
 	movq	%rax, -48(%rbp)
+	movq	-64(%rbp), %rcx
+	movabsq	$-2601111570856684097, %rdx
+	movq	%rcx, %rax
+	mulq	%rdx
+	shrq	$33, %rdx
+	movabsq	$10000000000, %rax
+	imulq	%rdx, %rax
+	subq	%rax, %rcx
+	movq	%rcx, %rax
+	movq	%rax, -32(%rbp)
 	movl	$93, -76(%rbp)
 	jmp	.L4
 .L7:
