@@ -52,6 +52,8 @@ print_to_98:
 	leaq	.LC0(%rip), %rdi
 	movl	$0, %eax
 	call	printf@PLT
+	movl	$10, %edi
+	call	putchar@PLT
 	jmp	.L7
 .L9:
 	movl	-4(%rbp), %eax
