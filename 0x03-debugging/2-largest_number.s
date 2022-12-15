@@ -1,12 +1,8 @@
 	.file	"2-largest_number.c"
 	.text
-	.section	.rodata
-.LC0:
-	.string	"%d is the largest number\n"
-	.text
-	.globl	main
-	.type	main, @function
-main:
+	.globl	largest_number
+	.type	largest_number, @function
+largest_number:
 .LFB0:
 	.cfi_startproc
 	endbr64
@@ -15,24 +11,30 @@ main:
 	.cfi_offset 6, -16
 	movq	%rsp, %rbp
 	.cfi_def_cfa_register 6
-	subq	$16, %rsp
-	movl	$972, -16(%rbp)
-	movl	$-98, -12(%rbp)
-	movl	$0, -8(%rbp)
-	movl	-16(%rbp), %eax
+	movl	%edi, -20(%rbp)
+	movl	%esi, -24(%rbp)
+	movl	%edx, -28(%rbp)
+	movl	-20(%rbp), %eax
 	movl	%eax, -4(%rbp)
+	movl	-24(%rbp), %eax
+	cmpl	-4(%rbp), %eax
+	jle	.L2
+	movl	-24(%rbp), %eax
+	movl	%eax, -4(%rbp)
+.L2:
+	movl	-28(%rbp), %eax
+	cmpl	-4(%rbp), %eax
+	jle	.L3
+	movl	-28(%rbp), %eax
+	movl	%eax, -4(%rbp)
+.L3:
 	movl	-4(%rbp), %eax
-	movl	%eax, %esi
-	leaq	.LC0(%rip), %rdi
-	movl	$0, %eax
-	call	printf@PLT
-	movl	$0, %eax
-	leave
+	popq	%rbp
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
 .LFE0:
-	.size	main, .-main
+	.size	largest_number, .-largest_number
 	.ident	"GCC: (Ubuntu 9.4.0-1ubuntu1~20.04.1) 9.4.0"
 	.section	.note.GNU-stack,"",@progbits
 	.section	.note.gnu.property,"a"
