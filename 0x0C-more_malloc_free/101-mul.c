@@ -31,7 +31,7 @@ int find_len(char *str)
  * @size: The size of the array to be initialized.
  *
  * Description: If there is insufficient space, the
- *         function exits with a status of 98.
+ *              function exits with a status of 98.
  * Return: A pointer to the array.
  */
 char *create_xarray(int size)
@@ -54,7 +54,7 @@ char *create_xarray(int size)
 
 /**
  * iterate_zeroes - Iterates through a string of numbers containing
- *              leading zeroes until it hits a non-zero number.
+ *                  leading zeroes until it hits a non-zero number.
  * @str: The string of numbers to be iterate through.
  *
  * Return: A pointer to the next non-zero element.
@@ -72,7 +72,7 @@ char *iterate_zeroes(char *str)
  * @c: The character to be converted.
  *
  * Description: If c is a non-digit, the function
- *           exits with a status of 98.
+ *              exits with a status of 98.
  * Return: The converted int.
  */
 int get_digit(char c)
@@ -96,7 +96,7 @@ int get_digit(char c)
  * @zeroes: The necessary number of leading zeroes.
  *
  * Description: If mult contains a non-digit, the function
- *            exits with a status value of 98.
+ *              exits with a status value of 98.
  */
 void get_prod(char *prod, char *mult, int digit, int zeroes)
 {
@@ -131,13 +131,11 @@ void get_prod(char *prod, char *mult, int digit, int zeroes)
 		num += tens;
 		*prod = (num % 10) + '0';
 		tens = num / 10;
-
 	}
 
 	if (tens)
 		*prod = (tens % 10) + '0';
 }
-
 
 /**
  * add_nums - Adds the numbers stored in two strings.
@@ -179,7 +177,6 @@ void add_nums(char *final_prod, char *next_prod, int next_len)
 
 	if (tens)
 		*final_prod = (tens % 10) + '0';
-
 }
 
 /**
@@ -188,7 +185,7 @@ void add_nums(char *final_prod, char *next_prod, int next_len)
  * @argc: An array of pointers to the arguments.
  *
  * Description: If the number of arguments is incorrect or one number
- *            contains non-digits, the function exits with a status of 98.
+ *              contains non-digits, the function exits with a status of 98.
  * Return: Always 0.
  */
 int main(int argc, char *argv[])
@@ -216,9 +213,7 @@ int main(int argc, char *argv[])
 	final_prod = create_xarray(size + 1);
 	next_prod = create_xarray(size + 1);
 
-
 	for (index = find_len(argv[2]) - 1; index >= 0; index--)
-
 	{
 		digit = get_digit(*(argv[2] + index));
 		get_prod(next_prod, argv[1], digit, zeroes++);
@@ -228,7 +223,6 @@ int main(int argc, char *argv[])
 	{
 		if (final_prod[index] != 'x')
 			putchar(final_prod[index]);
-
 	}
 	putchar('\n');
 
